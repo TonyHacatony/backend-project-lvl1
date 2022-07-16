@@ -6,4 +6,4 @@ export const hello = () => {
     console.log(`Hello, ${name}!`);
 };
 
-export default hello;
+export const message = (message) => readlineSync.question(message);
