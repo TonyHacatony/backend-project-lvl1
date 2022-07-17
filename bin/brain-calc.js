@@ -37,7 +37,7 @@ const prepareCorrectAnswer = (question) => {
     const sign = parsedQuestion[2];
     const secondNumber = Number(parsedQuestion[3]);
     return calculate(firstNumber, secondNumber, sign);
-}
+};
 
 const gameDescription = {
     rules, createQuestion, prepareCorrectAnswer, isCorrectAnswer,

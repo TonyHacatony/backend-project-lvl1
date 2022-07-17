@@ -9,7 +9,7 @@ const createQuestion = () => `Question: ${random(0, 1000)}`;
 const prepareCorrectAnswer = (question) => {
     const number = question.split(' ')[1];
     return number % 2 === 0 ? 'yes' : 'no';
-}
+};
 
 const gameDescription = {
     rules, createQuestion, prepareCorrectAnswer,

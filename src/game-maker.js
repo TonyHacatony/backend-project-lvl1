@@ -54,8 +54,12 @@ const game = (gameDescription) => {
     while (!gameInfo.isGameFinished) {
         const question = createQuestion();
         console.log(question);
+        console.log('start correct answer');
         const correctAnswer = prepareCorrectAnswer(question);
+        console.log('finish correct answer');
+        console.log('start user ask');
         const userAnswer = askUser(askUserAnswer());
+        console.log('finish user ask');
         if (isCorrectAnswer(correctAnswer, userAnswer)) {
             console.log(msgOnCorrectAnswer(correctAnswer));
             gameInfo.result = updateGameInfoOnCorrectAnswer(gameInfo.result);
