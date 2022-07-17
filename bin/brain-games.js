@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { hello } from '../src/cli.js';
+import { defaultHello as hello } from '../src/game-maker.js';
 
 hello();
