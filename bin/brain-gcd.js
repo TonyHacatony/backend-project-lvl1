@@ -24,7 +24,7 @@ const gcd = (first, second) => {
 };
 
 const gameDescription = {
-    rules, createQuestionAndCorrectAnswer, prepareCorrectAnswer, isCorrectAnswer,
+    rules, createQuestionAndCorrectAnswer, isCorrectAnswer,
 };
 
 makeGame(gameDescription);
