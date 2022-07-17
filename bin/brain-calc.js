@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { getRandomIntInclusive as random, makeGame } from '../src/game-maker.js';
+import { getRandomIntInclusive as random, makeGame } from '../src/games/game-maker.js';
 
 const rules = 'What is the result of the expression?';
 

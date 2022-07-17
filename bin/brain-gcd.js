@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { makeGame, getRandomIntInclusive as random } from '../src/game-maker.js';
+import { makeGame, getRandomIntInclusive as random } from '../src/games/game-maker.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
 

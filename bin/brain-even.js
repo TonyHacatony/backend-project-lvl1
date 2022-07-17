@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { makeGame, getRandomIntInclusive as random } from '../src/game-maker.js';
+import { makeGame, getRandomIntInclusive as random } from '../src/games/game-maker.js';
 
 const rules = 'Answer \'yes\' if the number is even, otherwise answer \'no\'.';
 

@@ -1,27 +1,27 @@
-import { askUser } from './cli.js';
+import { askUser } from '../cli/cli.js';
 
-export const defaultHello = () => {
+export const hello = () => {
   console.log('Welcome to the Brain Games!');
   const name = askUser('May I have your name? ');
   console.log(`Hello, ${name}!`);
   return name;
 };
 
-const defaultAskUserAnswer = () => 'Your answer: ';
+const askUserAnswer = () => 'Your answer: ';
 
 const defaultIsCorrectAnswer = (correctAnswer, userAnswer) => correctAnswer === userAnswer;
 
-const defaultMsgOnCorrectAnswer = () => 'Correct!';
+const msgOnCorrectAnswer = () => 'Correct!';
 
-const defaultUpdateGameInfoOnCorrectAnswer = (acc) => (acc !== undefined ? acc + 1 : 1);
+const updateGameInfoOnCorrectAnswer = (acc) => (acc !== undefined ? acc + 1 : 1);
 
-const defaultMsgOnIncorrectAnswer = (correctAnswer, userAnswer) => `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`;
+const msgOnIncorrectAnswer = (correctAnswer, userAnswer) => `'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`;
 
-const defaultUpdateGameInfoOnIncorrectAnswer = () => -1;
+const updateGameInfoOnIncorrectAnswer = () => -1;
 
-const defaultIsGameFinished = (result) => result >= 3 || result < 0;
+const isGameFinished = (result) => result >= 3 || result < 0;
 
-const defaultFinalLog = (gameInfo) => {
+const finalLog = (gameInfo) => {
   const { playerName, result } = gameInfo;
   if (result >= 3) {
     return `Congratulations, ${playerName}!`;
@@ -31,24 +31,12 @@ const defaultFinalLog = (gameInfo) => {
 
 const game = (gameDescription) => {
   const {
-    rules, createQuestionAndCorrectAnswer,
-    hello = defaultHello,
-    askUserAnswer = defaultAskUserAnswer,
-    isCorrectAnswer = defaultIsCorrectAnswer,
-    msgOnCorrectAnswer = defaultMsgOnCorrectAnswer,
-    updateGameInfoOnCorrectAnswer = defaultUpdateGameInfoOnCorrectAnswer,
-    msgOnIncorrectAnswer = defaultMsgOnIncorrectAnswer,
-    updateGameInfoOnIncorrectAnswer = defaultUpdateGameInfoOnIncorrectAnswer,
-    isGameFinished = defaultIsGameFinished,
-    finalLog = defaultFinalLog,
+    rules, createQuestionAndCorrectAnswer, isCorrectAnswer = defaultIsCorrectAnswer,
   } = gameDescription;
 
   const name = hello();
   console.log(rules);
-  const gameInfo = {
-    playerName: name,
-    isGameFinished: false,
-  };
+  const gameInfo = { playerName: name, isGameFinished: false };
 
   while (!gameInfo.isGameFinished) {
     const { question, correctAnswer } = createQuestionAndCorrectAnswer();
