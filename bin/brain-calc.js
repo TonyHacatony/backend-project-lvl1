@@ -18,7 +18,16 @@ const getRandonSign = () => {
     }
 };
 
-const createQuestion = () => `Question: ${random(0, 1000)} ${getRandonSign()} ${random(0, 1000)}`;
+const createQuestionAndCorrectAnswer = () => {
+    const firstNumber = random(0, 1000);
+    const secondNumber = random(0, 1000);
+    const sign = getRandonSign();
+    return {
+        question: `Question: ${firstNumber} ${sign} ${secondNumber}`,
+        correctAnswer: calculate(firstNumber, secondNumber, sign),
+    };
+}
+
 
 const calculate = (firstNumber, secondNumber, sign) => {
     switch (sign) {
@@ -31,16 +40,8 @@ const calculate = (firstNumber, secondNumber, sign) => {
     }
 };
 
-const prepareCorrectAnswer = (question) => {
-    const parsedQuestion = question.split(' ');
-    const firstNumber = Number(parsedQuestion[1]);
-    const sign = parsedQuestion[2];
-    const secondNumber = Number(parsedQuestion[3]);
-    return calculate(firstNumber, secondNumber, sign);
-};
-
 const gameDescription = {
-    rules, createQuestion, prepareCorrectAnswer, isCorrectAnswer,
+    rules, createQuestionAndCorrectAnswer, isCorrectAnswer,
 };
 
 makeGame(gameDescription);

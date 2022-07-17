@@ -6,7 +6,14 @@ const rules = `Find the greatest common divisor of given numbers.`;
 
 const isCorrectAnswer = (correctAnswer, userAnswer) => correctAnswer === Number(userAnswer);
 
-const createQuestion = () => `Question: ${random(1, 50)} ${random(1, 50)}`;
+const createQuestionAndCorrectAnswer = () => {
+    const firstNumber = random(1, 50);
+    const secondNumber = random(1, 50);
+    return {
+        question: `Question: ${firstNumber} ${secondNumber}`,
+        correctAnswer: gcd(firstNumber, secondNumber),
+    };
+};
 
 const gcd = (first, second) => {
     const remainder = first % second;
@@ -16,15 +23,8 @@ const gcd = (first, second) => {
     return gcd(second, remainder);
 };
 
-const prepareCorrectAnswer = (question) => {
-    const parsedQuestion = question.split(' ');
-    const firstNumber = parsedQuestion[1];
-    const secondNumber = parsedQuestion[2];
-    return gcd(firstNumber, secondNumber);
-};
-
 const gameDescription = {
-    rules, createQuestion, prepareCorrectAnswer, isCorrectAnswer,
+    rules, createQuestionAndCorrectAnswer, prepareCorrectAnswer, isCorrectAnswer,
 };
 
 makeGame(gameDescription);

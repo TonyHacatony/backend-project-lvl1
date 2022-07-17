@@ -32,7 +32,7 @@ const defaultFinalLog = (gameInfo) => {
 
 const game = (gameDescription) => {
     const {
-        rules, createQuestion, prepareCorrectAnswer,
+        rules, createQuestionAndCorrectAnswer,
         hello = defaultHello,
         askUserAnswer = defaultAskUserAnswer,
         isCorrectAnswer = defaultIsCorrectAnswer,
@@ -52,9 +52,8 @@ const game = (gameDescription) => {
     };
 
     while (!gameInfo.isGameFinished) {
-        const question = createQuestion();
+        const { question, correctAnswer } = createQuestionAndCorrectAnswer();
         console.log(question);
-        const correctAnswer = prepareCorrectAnswer(question);
         const userAnswer = askUser(askUserAnswer());
         if (isCorrectAnswer(correctAnswer, userAnswer)) {
             console.log(msgOnCorrectAnswer(correctAnswer));
